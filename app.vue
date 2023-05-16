@@ -1,10 +1,10 @@
 <template>
-  <div class="transition duration-300 h-full min-h-screen" :class="background_color">
+  <div class="transition duration-300 h-full min-h-screen" :class="'bg-' + theme_color">
     <div class="w-full md:w-3/4 lg:w-1/2 2xl:w-1/3 py-10 px-4 mx-auto">
       <p class="text-7xl font-bold text-center">
         Ed-nalysis
         <Transition name="fade">
-          <span v-if="album != 'none'">: {{ album }} </span>
+          <span v-if="album != 'none'">: {{ album_symbol }} </span>
         </Transition>
       </p>
       <div
@@ -84,12 +84,14 @@
 
       <div class="text-center text-5xl mt-20">
         <p class="font-bold">{{ top_number }} Most Common Words</p>
-        <input type="range" min="1" max="100" v-model="top_number" class="w-full md:w-1/2" />
+        <input type="range" min="1" max="100" v-model="top_number" class="w-full md:w-1/2" :class="'accent-' + theme_color" />
         <p 
-          v-for="word in ten_most_common"
+          v-for="word in most_common"
           :key="word"
+          @mouseover="hovered_word = word"
+          @mouseleave="hovered_word = ''"
         >
-          {{ word.charAt(0).toUpperCase() + word.slice(1) }}
+            <span v-if="hovered_word == word">{{ most_common.indexOf(word) + 1 }}. </span>{{ word.charAt(0).toUpperCase() + word.slice(1) }}<span v-if="hovered_word == word">: {{ album_dict[word] }}</span>
         </p>
       </div>
 
@@ -134,47 +136,69 @@ import equals from "~/assets/data/equals.json";
 import multiply from "~/assets/data/multiply.json";
 import subtract from "~/assets/data/subtract.json";
 
-const background_color = ref("bg-white");
+const theme_color = ref("bg-white");
 // const ed_hover = ref(false);
 const album = ref("none");
 const top_number = ref(10);
+const hovered_word = ref("");
 
-const ten_most_common = computed(() => {
+const album_dict = computed(() => {
   switch (album.value) {
     case "Plus":
-      return Object.keys(add).slice(0, top_number.value)
+      return add;
     case "Multiply":
-      return Object.keys(multiply).slice(0, top_number.value)
+      return multiply;
     case "Divide":
-      return Object.keys(divide).slice(0, top_number.value)
+      return divide;
     case "Equals":
-      return Object.keys(equals).slice(0, top_number.value)
+      return equals;
     case "Subtract":
-      return Object.keys(subtract).slice(0, top_number.value)
+      return subtract;
     case "none":
-      return Object.keys(all).slice(0, top_number.value)
+      return all;
+  }
+})
+
+const most_common = computed(() => {
+  return Object.keys(album_dict.value).slice(0, top_number.value)
+})
+
+const album_symbol = computed(() => {
+  switch (album.value) {
+    case "Plus":
+      return "+";
+    case "Multiply":
+      return "X";
+    case "Divide":
+      return "÷";
+    case "Equals":
+      return "=";
+    case "Subtract":
+      return "-";
+    case "none":
+      return "";
   }
 })
 
 function set_background_color(album) {
   switch (album) {
     case "Plus":
-      background_color.value = "bg-[#d67a3e]";
+      theme_color.value = "[#d67a3e]";
       break;
     case "Multiply":
-      background_color.value = "bg-[#1dcb57]";
+      theme_color.value = "[#1dcb57]";
       break;
     case "Divide":
-      background_color.value = "bg-[#65c9e6]";
+      theme_color.value = "[#65c9e6]";
       break;
     case "Equals":
-      background_color.value = "bg-[#cc2c34]";
+      theme_color.value = "[#cc2c34]";
       break;
     case "Subtract":
-      background_color.value = "bg-[#f4d811]";
+      theme_color.value = "[#f4d811]";
       break;
     case "none":
-      background_color.value = "bg-white";
+      theme_color.value = "white";
   }
 }
 </script>
