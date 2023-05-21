@@ -90,54 +90,56 @@
         </p>
       </div>
 
-      <p class="text-5xl font-bold text-center mt-20">Comparisons</p>
+      <div v-if="album == 'none'">
+        <p class="text-5xl font-bold text-center mt-20">Comparisons</p>
 
-      <div class="text-center mt-8">
-        <p class="font-semibold text-4xl">I/Me vs. You vs. We/Us</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 xl:gap-12 mt-8">
-          <div class="w-full">
-            <Icon name="fa6-solid:user" class="w-full h-48 rounded-lg" color="red" />
-            <p class="text-xl mt-2">I/Me (5,357 occurrences)</p>
-          </div>
+        <div class="text-center mt-8">
+          <p class="font-semibold text-4xl">I/Me vs. You vs. We/Us</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 xl:gap-12 mt-8">
+            <div class="w-full">
+              <Icon name="fa6-solid:user" class="w-full h-48 rounded-lg" color="red" />
+              <p class="text-xl mt-2">I/Me (5,357 occurrences)</p>
+            </div>
 
-          <div class="w-full">
-            <Icon name="fa6-solid:user" class="w-full h-48 rounded-lg" color="blue" />
-            <p class="text-xl mt-2">You (2840 occurrences)</p>
-          </div>
+            <div class="w-full">
+              <Icon name="fa6-solid:user" class="w-full h-48 rounded-lg" color="blue" />
+              <p class="text-xl mt-2">You (2,840 occurrences)</p>
+            </div>
 
-          <div class="full">
-            <Icon name="fa6-solid:user-group" class="w-full h-48 rounded-lg" color="purple" />
-            <p class="text-xl mt-2">We/Us (1,057 occurrences)</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-8">
-        <p class="font-semibold text-4xl">Love or Hate?</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-1 mt-8">
-          <div class="w-full">
-            <Icon name="fa6-solid:heart" class="w-full h-48 rounded-lg" color="red" />
-            <p class="text-xl">Love (945 occurrences)</p>
-          </div>
-
-          <div class="w-full">
-            <Icon name="fa6-solid:heart-crack" class="w-full h-48 rounded-lg" color="red" />
-            <p class="text-xl">Hate (25 occurrences)</p>
+            <div class="full">
+              <Icon name="fa6-solid:user-group" class="w-full h-48 rounded-lg" color="purple" />
+              <p class="text-xl mt-2">We/Us (1,057 occurrences)</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="text-center mt-8">
-        <p class="font-semibold text-4xl">Day or Night?</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-1 mt-8">
-          <div class="w-full">
-            <Icon name="fa6-solid:sun" class="w-full h-48 rounded-lg" color="yellow" />
-            <p class="text-xl mt-2">Day (160 occurrences)</p>
+        <div class="text-center mt-8">
+          <p class="font-semibold text-4xl">Love or Hate?</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-1 mt-8">
+            <div class="w-full">
+              <Icon name="fa6-solid:heart" class="w-full h-48 rounded-lg" color="red" />
+              <p class="text-xl">Love (945 occurrences)</p>
+            </div>
+
+            <div class="w-full">
+              <Icon name="fa6-solid:heart-crack" class="w-full h-48 rounded-lg" color="red" />
+              <p class="text-xl">Hate (25 occurrences)</p>
+            </div>
           </div>
+        </div>
 
-          <div class="w-full">
-            <Icon name="fa6-solid:moon" class="w-full h-48 rounded-lg" color="black" />
-            <p class="text-xl mt-2">Night (433 occurrences)</p>
+        <div class="text-center mt-8">
+          <p class="font-semibold text-4xl">Day or Night?</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-1 mt-8">
+            <div class="w-full">
+              <Icon name="fa6-solid:sun" class="w-full h-48 rounded-lg" color="yellow" />
+              <p class="text-xl mt-2">Day (160 occurrences)</p>
+            </div>
+
+            <div class="w-full">
+              <Icon name="fa6-solid:moon" class="w-full h-48 rounded-lg" color="black" />
+              <p class="text-xl mt-2">Night (433 occurrences)</p>
+            </div>
           </div>
         </div>
       </div>
