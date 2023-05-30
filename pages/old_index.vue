@@ -255,10 +255,10 @@ function set_background_color(album) {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 * {
-  font-family: "Lato", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .fade-enter-active,

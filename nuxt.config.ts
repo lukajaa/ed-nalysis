@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
     app: {
         head: {
-            title: 'Ed-Nalysis'
+            title: 'Ed-nalysis'
         }
     },
     modules: [
