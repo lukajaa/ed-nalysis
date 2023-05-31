@@ -11,6 +11,7 @@
     >
       {{ word }}: {{ occurrences }}
     </p>
+    <BackButton />
   </div>
 </template>
 
