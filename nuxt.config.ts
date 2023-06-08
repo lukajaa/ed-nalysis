@@ -7,6 +7,10 @@ export default defineNuxtConfig({
     },
     modules: [
         '@nuxtjs/tailwindcss',
-        'nuxt-icon'
-    ]
+        'nuxt-gtag',
+        'nuxt-icon',
+    ],
+    gtag: {
+        id: 'G-QNLZ5NY7HH'
+    }
 })
